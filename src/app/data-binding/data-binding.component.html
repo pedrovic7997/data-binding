@@ -1,6 +1,6 @@
 <section class="property-binding">
 
-    <article>
+    <!-- <article>
         <h3>Interpolation / Interpolação</h3>
         <p>String renderizada com interpolação: {{ url }}</p>
         <p>Resultado de 1 + 1 é: {{ 1 + 1 }}</p>
@@ -13,6 +13,81 @@
         <img src="{{ urlImagem }}">
         <img [src]="urlImagem">
         <img bind-src="urlImagem">
+    </article> -->
+
+    <article>
+        <h3>Class e Style Binding</h3>
+        <div>
+            Selecione uma classe:
+
+            <!-- #classe é uma variável, e pela arbitrariedade do nome, deve ser 
+            automaticamente atribuida a ela o value selecionado desse dropdown -->
+
+            <select #classe (change)="0">
+                <option value="alert-success">Sucesso</option>
+                <option value="alert-primary">Primário</option>
+                <option value="alert-secondary">Secundário</option>
+                <option value="alert-danger">Perigo</option>
+                <option value="alert-warning">Alerta</option>
+                <option value="alert-info">Info</option>
+                <option value="alert-light">Claro</option>
+                <option value="alert-dark">Escuro</option>
+            </select>
+            <br><br>
+
+            <!-- Maneira 2 de class binding: Interpolation -->
+            <div class="alert {{ classe.value }}" role="alert">
+                Texto colorido conforme valor do combobox.
+            </div>
+
+            <!-- Maneira 1 de class binding: Property Binding de classe -->
+            <div class="alert" role="alert"
+                [class.alert-success]="classe.value === 'alert-success'">
+                Sucesso
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-primary]="classe.value === 'alert-primary'">
+                Primário
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-secondary]="classe.value === 'alert-secondary'">
+                Secundário
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-danger]="classe.value === 'alert-danger'">
+                Perigo
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-warning]="classe.value === 'alert-warning'">
+                Alerta
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-info]="classe.value === 'alert-info'">
+                Info
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-light]="classe.value === 'alert-light'">
+                Claro
+            </div>
+
+            <div class="alert" role="alert"
+                [class.alert-dark]="classe.value === 'alert-dark'">
+                Escuro
+            </div>
+
+            <!-- Maneira 3 de class binding: Property Binding com estilo de classe -->
+            <div class="alert alert-dark" role="alert"
+                [style.display]="classe.value === 'alert-dark' ? 'block' : 'none'">
+                Esse texto só aparece em caso de Escuro.
+            </div>
+
+        </div>
     </article>
 
 </section>
