@@ -106,6 +106,9 @@
 
             <br><br>
 
+            <!-- #campoInput está recebendo o equivalente a
+                $event.target. Como typescript não permite coisas
+                nulas, na hora da transpilação ele reclama-->
             <input type="text"
                 (keyup)="onKeyUp($event)"
                 (keyup.enter)="salvarValor(campoInput.value)"
@@ -128,3 +131,7 @@
     </article>
 
 </section>
+
+
+
+<app-meu-form></app-meu-form>
